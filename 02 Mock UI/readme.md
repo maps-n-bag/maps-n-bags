@@ -1,0 +1,2 @@
+# Mock UI
+go to [figma](https://www.figma.com/proto/yXwHJBPeRnQun5hA6u3pql/Maps-'n-Bags?type=design&node-id=3-3&t=y8ZmmrWIjsVmYdzv-1&scaling=contain&page-id=0%3A1&starting-point-node-id=3%3A3&mode=design)
