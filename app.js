@@ -4,11 +4,13 @@ const env=require('dotenv').config();
 const plan = require("./routes/plan_route")
 const event = require("./routes/event_route")
 const cors = require("cors")
+const place = require("./routes/place_route")
 
 
 app.use(express.json())
 app.use("/plan", plan)
 app.use("/event", event)
+app.use("/place", place)
 app.use(cors())
 
 const port = process.env.PORT || 3000
