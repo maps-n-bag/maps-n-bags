@@ -33,5 +33,29 @@ const get_event_distance_model = async (plan_id) => {
         return [];
     }
 };
+const get_event_detail_model = async (event_id) => {
+    try {
+        const query = {
+            text: 'SELECT * FROM public.event_detail WHERE event_id = $1',
+            values: [event_id]
+        };
+        const result1 = await client.query(query);
+        const event_detail = result1.rows;
 
-module.exports = { get_event_model, get_event_distance_model };
+        const query2 = {
+            text: 'SELECT * FROM public.event_image WHERE event_id = $1',
+            values: [event_id]
+        };
+        const result2 = await client.query(query2);
+        const event_image = result2.rows;
+
+        return {
+            event_details: event_detail,
+            event_images: event_image
+        };
+    } catch (error) {
+        console.error('Error:', error);
+        return null;
+    }
+};
+module.exports = { get_event_model, get_event_distance_model,get_event_detail_model };
