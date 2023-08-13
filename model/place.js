@@ -18,13 +18,16 @@ const get_place_info = async (place_id) => {
         console.log(images);
         
         return {
-            data: rows[0],
-            images: images
+            data: {
+                ...rows[0],
+                images: images
+            }
         };
     } catch (error) {
         console.error('Error:', error);
         return null;
     }
 };
+
 
 module.exports = get_place_info;

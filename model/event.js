@@ -40,18 +40,25 @@ const get_event_detail_model = async (event_id) => {
             values: [event_id]
         };
         const result1 = await client.query(query);
-        const event_detail = result1.rows;
+        const event_detail = result1.rows[0];
 
         const query2 = {
-            text: 'SELECT * FROM public.event_image WHERE event_id = $1',
+            text: 'SELECT image FROM public.event_image WHERE event_id = $1',
             values: [event_id]
         };
         const result2 = await client.query(query2);
-        const event_image = result2.rows;
+        const event_images = result2.rows;
+
+        // Exclude 'id' field from image objects
+        const imagesWithoutId = event_images.map((imageRow) => {
+            const { id, ...rest } = imageRow;
+            return rest;
+        });
+
+        event_detail.event_images = imagesWithoutId;
 
         return {
-            event_details: event_detail,
-            event_images: event_image
+            event_details: event_detail
         };
     } catch (error) {
         console.error('Error:', error);
