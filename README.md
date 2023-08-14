@@ -5,4 +5,4 @@ Find the respective repositories here
 - [BackEnd](https://github.com/niananto/maps-n-bags-backend)
 - [Scraper](https://github.com/niananto/maps-n-bags-scraper)
 
-BackEnd destination [netlify hosting](https://clever-unicorn-526859.netlify.app)
+BackEnd destination [render hosting](https://maps-n-bags.onrender.com)
